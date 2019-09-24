@@ -2,25 +2,19 @@ package edu.escuelaing.arep.app;
 
 import java.io.*;
 import java.net.*;
+import java.util.ArrayList;
 
 public class Controller {
     public static void main(String[] args) throws Exception {
-        for(int i = 0; i < 500; i++){
-            URL url = new URL("https://proyecto-arep1.herokuapp.com/static/index.html");
-            conect(url);
+        URL url1 = new URL("https://proyecto-arep1.herokuapp.com/static/index.html");
+        URL url2 = new URL("https://proyecto-arep1.herokuapp.com/static/CalculadoraWeb.html");
+        ArrayList<RequestThread> peticiones = new ArrayList<RequestThread>();
+        for(int i = 0; i < 100; i ++){
+            peticiones.add(new RequestThread(url1));
+            peticiones.add(new RequestThread(url2));
         }
-
-    }
-
-    private static void conect(URL url){
-        try (BufferedReader reader = new BufferedReader(
-                new InputStreamReader(url.openStream()))) {
-            String inputLine = null;
-            while ((inputLine = reader.readLine()) != null) {
-                System.out.println(inputLine);
-            }
-        } catch (IOException x) {
-            System.err.println(x);
+        for(int i = 0; i < peticiones.size(); i++){
+            peticiones.get(i).start();
         }
     }
 }
