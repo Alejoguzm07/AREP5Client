@@ -1,8 +1,8 @@
 package edu.escuelaing.arep.app;
 
-import java.io.*;
 import java.net.*;
 import java.util.ArrayList;
+import java.util.Random;
 
 public class Controller {
     public static void main(String[] args) throws Exception {
@@ -33,6 +33,7 @@ public class Controller {
     }
     
     private static ArrayList<URL> prepararUrls(int num) throws MalformedURLException {
+    	Random n = new Random();
 		ArrayList<URL> links = new ArrayList<URL>();
 		ArrayList<URL> peticiones = new ArrayList<URL>();
 		links.add(new URL("https://proyecto-arep1.herokuapp.com/static/index.html"));links.add(new URL("https://proyecto-arep1.herokuapp.com/staticindex.html"));
@@ -41,7 +42,7 @@ public class Controller {
 		links.add(new URL("https://proyecto-arep1.herokuapp.com/apps/Division?9,3"));links.add(new URL("https://proyecto-arep1.herokuapp.com/apps/Division?9"));
 		links.add(new URL("https://proyecto-arep1.herokuapp.com/apps/Cuadrado?5"));links.add(new URL("https://proyecto-arep1.herokuapp.com/apps/Cuadrad?5"));
 		for(int i = 0; i < num; i++) {
-			peticiones.add(links.get((int)Math.random() % links.size()));
+			peticiones.add(links.get(Math.abs(n.nextInt()) % links.size()));
 		}
 		return peticiones;
     }

@@ -8,6 +8,7 @@ public class RequestThread extends Thread{
     URL url;
 
     public RequestThread (URL url){
+    	System.err.println(url.toString());
         this.url = url;
     }
 

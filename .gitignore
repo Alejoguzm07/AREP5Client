@@ -24,4 +24,7 @@ target/
 .DS_Store
 # ide
 .idea
-
+.settings
+.project
+.classpath
+bin/
