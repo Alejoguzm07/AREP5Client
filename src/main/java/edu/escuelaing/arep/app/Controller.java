@@ -10,7 +10,8 @@ public class Controller {
 	private static AtomicInteger fallos;
 
     public static void main(String[] args) throws Exception {
-    	int cantidad = Integer.parseInt(args[0]);
+    	//int cantidad = Integer.parseInt(args[0]);
+        int cantidad = 10;
     	fallos = new AtomicInteger();
     	ArrayList<URL> links = prepararUrls(cantidad);
     	double ini = System.currentTimeMillis();
@@ -48,7 +49,7 @@ public class Controller {
     	Random n = new Random();
 		ArrayList<URL> links = new ArrayList<URL>();
 		ArrayList<URL> peticiones = new ArrayList<URL>();
-		links.add(new URL("https://proyecto-arep1.herokuapp.com/static/index.html"));
+		links.add(new URL("https://arep5server.herokuapp.com/static/index.html"));
 		//links.add(new URL("https://proyecto-arep1.herokuapp.com/static/CalculadoraWeb.html"));
 		//links.add(new URL("https://proyecto-arep1.herokuapp.com/static/paisaje.jpg"));
 		//links.add(new URL("https://proyecto-arep1.herokuapp.com/apps/Division?9,3"));
