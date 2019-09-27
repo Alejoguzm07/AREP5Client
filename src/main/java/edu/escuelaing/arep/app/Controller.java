@@ -10,8 +10,8 @@ public class Controller {
 	private static AtomicInteger fallos;
 
     public static void main(String[] args) throws Exception {
-    	//int cantidad = Integer.parseInt(args[0]);
-        int cantidad = 10;
+    	int cantidad = Integer.parseInt(args[0]);
+        //int cantidad = 10;
     	fallos = new AtomicInteger();
     	ArrayList<URL> links = prepararUrls(cantidad);
     	double ini = System.currentTimeMillis();
